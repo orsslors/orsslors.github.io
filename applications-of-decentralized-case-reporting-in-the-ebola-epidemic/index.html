@@ -1,0 +1,233 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Applications of Decentralized Case Reporting in the Ebola Epidemic</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=26dc3bd4c5">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Nina's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Applications of Decentralized Case Reporting in the Ebola Epidemic">
+    <meta property="og:description" content="A proof-of-concept real-time SMS-based epidemic heatmap and case-reporting platform A decentralized system for epidemic case reporting is a more efficient alternative to the existing hierarchical system because it 1) reduces dependency on often incompetent/corrupt local government officials, 2) increases...">
+    <meta property="og:url" content="http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/">
+    <meta property="og:image" content="http://localhost:2368/content/images/2016/01/1-kHB8mFN9OmvFIluf5RsWSQ.jpeg">
+    <meta property="article:published_time" content="2016-01-13T16:18:52.035Z">
+    <meta property="article:modified_time" content="2016-01-13T16:26:43.520Z">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Applications of Decentralized Case Reporting in the Ebola Epidemic">
+    <meta name="twitter:description" content="A proof-of-concept real-time SMS-based epidemic heatmap and case-reporting platform A decentralized system for epidemic case reporting is a more efficient alternative to the existing hierarchical system because it 1) reduces dependency on often incompetent/corrupt local government officials, 2) increases...">
+    <meta name="twitter:url" content="http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/">
+    <meta name="twitter:image:src" content="http://localhost:2368/content/images/2016/01/1-kHB8mFN9OmvFIluf5RsWSQ.jpeg">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Nina's Blog",
+    "author": {
+        "@type": "Person",
+        "name": "Nina Lu",
+        "image": "http://localhost:2368/content/images/2016/01/10423276_10203437882244617_2680818515112715062_n.jpg",
+        "url": "http://localhost:2368/author/nina",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Applications of Decentralized Case Reporting in the Ebola Epidemic",
+    "url": "http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/",
+    "datePublished": "2016-01-13T16:18:52.035Z",
+    "dateModified": "2016-01-13T16:26:43.520Z",
+    "image": "http://localhost:2368/content/images/2016/01/1-kHB8mFN9OmvFIluf5RsWSQ.jpeg",
+    "description": "A proof-of-concept real-time SMS-based epidemic heatmap and case-reporting platform A decentralized system for epidemic case reporting is a more efficient alternative to the existing hierarchical system because it 1) reduces dependency on often incompetent/corrupt local government officials, 2) increases..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Nina's Blog" href="http://localhost:2368/rss/">
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://localhost:2368/">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://localhost:2368/rss/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(../content/images/2016/01/1-kHB8mFN9OmvFIluf5RsWSQ.jpeg)">
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Applications of Decentralized Case Reporting in the Ebola Epidemic</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-01-13">13 January 2016</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <h2 id="aproofofconceptrealtimesmsbasedepidemicheatmapandcasereportingplatform">A proof-of-concept real-time SMS-based epidemic heatmap and case-reporting platform</h2>
+
+<p>A decentralized system for epidemic case reporting is a more efficient alternative to the existing hierarchical system because it 1) reduces dependency on often incompetent/corrupt local government officials, 2) increases data available for large-scale global analytics, 3) allows us to institutionalize a standard format for case data across countries and organizations, and 4) allows officials to recognize and respond to crises faster and potentially preempt the spread of diseases rather than chase them.</p>
+
+<p>The recent Ebola epidemic is a fascinating case study on the failure of the traditional hierarchical approach to epidemic case-reporting in the allocation of humanitarian aid.</p>
+
+<p>When I read about the processes used by the World Health Organization (WHO), I was quite frankly shocked. The system is technologically backwards, painfully slow, and depends on a fragile and long chain of hierarchical information propagation that could and does easily fail. The WHO, in addition to having an international governing body, is run though regional branches that have been delegated the task of interacting with local and country-level officials. Under this system (if the stars aligned) cases are reported to local officials who propagate information up to country-level officials, to regional WHO branches, and then finally to the international WHO body.</p>
+
+<p><strong>This traditional hierarchical structure literally makes no sense in the context of an epidemic outbreak.</strong></p>
+
+<p>Firstly, it is susceptible to the caprices of local government officials, who could potentially have very wrong incentives or be outright corrupt. Further, it places the large logistical burden of building case reporting infrastructure in the hands of governments that are potentially incompetent and do not have the funding to build this infrastructure for themselves. This creates, at best, fragmented systems that reduce information and data sharing between countries, and, at worst, literally non-existent technological platforms for case reporting in the poverty-stricken areas where it is needed the most. Lastly, if *any *of these levels of propagation fail for any reason, the entire chain fails; the international community remains completely unaware a potentially global epidemic is ensuing and can not respond in an appropriate and timely manner to contain and vanquish the outbreak. The failure of this hierarchical propagation of case reporting through local government officials, regional offices and then to international organizations is highlighted by the fatally late response of the WHO in declaring the Ebola epidemic a global emergency, over 4.5 months into the epidemic, at which point the cumulative number of cases had already exceeded 1,500 and the death toll stood at 932<a href="http://www.washingtonpost.com/news/morning-mix/wp/2014/08/08/who-declares-international-health-emergency-for-ebola/">[1]</a>.</p>
+
+<p><strong>I am advocating replacing this system with a flatter global platform that allows doctors and mobile clinics to report cases of epidemics directly to a centralized database that is open to global data analytics, allowing faster case reporting with fewer bottlenecks and less bureaucracy.</strong></p>
+
+<p><img src="https://medium2.global.ssl.fastly.net/max/2000/1*Vp_AZxKUCl1782UNIfOU8w.png" alt="Comparison of the existing hierarchical system versus the proposed global platform" title=""><em>Comparison of the existing hierarchical system versus the proposed global platform</em></p>
+
+<p>In a Washington Post article, Leisha Nolen, a representative of the CDC describes an encounter with case tracking mechanisms employed by local officials:  </p>
+
+<blockquote>
+  <p>“[When she] asked to see the tally of suspected Ebola cases, [t]he officials pulled out a thick stack of papers. Each <em>*handwritten *</em>sheet represented a likely case, many of which had yet to be officially reported.”<a href="http://www.washingtonpost.com/sf/national/2014/10/04/how-ebola-sped-out-of-control/">[2]</a></p>
+</blockquote>
+
+<p>Local officials were simply unable to handle the influx of potential cases, track their origin and potential future headings. Even accounting for some sensationalization by the media, just seeing the word “handwritten” in the context of epidemic case reporting shocks and terrifies me.</p>
+
+<p>Handwritten case reporting in the 21st century? Is this a joke? What angers me the most is that we have all of the technology we need to make this system better; it just hasn’t been done. How does such a primitive process exist when so much technology exists to facilitate and inform international awareness of health crises and humanitarian aid allocation decisions?</p>
+
+<h2 id="barrierstotechnologicalinnovationinthenonprofitworld">Barriers to technological innovation in the non-profit world</h2>
+
+<p>There have traditionally been a couple huge barriers to technological progress in the non-profit world. I’ll list a couple I think pose the biggest barriers but this is certainly not an exhaustive list.</p>
+
+<ol>
+<li><p><strong>Lack of technical talent.</strong> Capitalism is great but it means that there is a huge differential between pay offered by the modern for-profit tech company and what can be offered by a non-profit. It has traditionally been very difficult to attract the best technical talent in the non-profit sphere due to low compensation and the heavy bureaucracy associated with working in the non-profit sphere. At some point, infrastructure becomes so backwards, so bulky and so messy that no one wants to deal with it, especially when you could work for Google on autonomous cars.</p></li>
+<li><p><strong>Slow adoption of new technologies.</strong> As I will go on to mention, even when potentially great technologies are developed, it is difficult to get organizations like the CDC and WHO to adopt them, because they 1) move slowly, 2) have pressing present issues that prevent them from allocating sufficient brainpower preparing for the future, and 3) are often risk-adverse and unwilling to try something new.</p></li>
+<li><p><strong>Difficulty of building systems that scale and work well in the developing world.</strong> While many technologies work on a small scale or as proof-of-concepts, building systems able to handle huge amounts of data and traffic reliably is expensive and complex. The infrastructure that must be built to handle sensitive global data is costly; further, these systems must be accessible to stakeholders in the developing world, who may be off-the-grid or have intermittent Internet access.</p></li>
+<li><p><strong>Fragmented data and lack of international standards in data formats across organizations.</strong> There are a lot of insights that could potentially be gained by sharing information across organizations and nations. However, there is no unifying standard for this data; thus, funneling data into a useable, consistent format is extremely difficult. For example, non-profits like the Médecins Sans Frontières (MSF) may have their own data sets but these are not integrated with data from other international bodies. On top of this, language barriers can present a challenge to data formatting and ultimate integration.</p></li>
+</ol>
+
+<h2 id="recenttechnologicaladvances">Recent technological advances</h2>
+
+<p>So all of that sounded pretty dreary. Is progress being made? Absolutely.</p>
+
+<p>Two huge areas of technological improvement have been in 1) civilian information hotlines and 2) internet trend analytics.</p>
+
+<h3 id="civilianinformationhotlines">Civilian Information Hotlines</h3>
+
+<p>Misinformation among civilians is a huge concern in epidemic situations as inaccurate information can spread quickly by word of mouth through families and communities. A text messaging system piloted by UNICEF called <a href="http://www.unicef.org/infobycountry/nigeria_76251.html">U-Report</a> offered a platform through which subscribers could ask questions and get real time responses from officials and experts. In the early days of the epidemic, there was a widely held belief in Nigeria that salt and water could be used to cure the disease. UNICEF’s system was a powerful channel for dispelling misinformation and educating civilians about transmission, prevention, and symptoms of the disease. A month into the outbreak, the subscriber base had increased from 19,000 to 63,000.</p>
+
+<p>The platform is part of a broader “mHealth” movement, which focuses on increasing dissemination of health information through mobile devices. Another key success in this movement has been a recent <a href="http://mobilemamaalliance.org/">collaboration</a> between the US Agency of International Development, the mHealth Alliance, and the UN Foundation that delivers health messages via SMS to expecting mothers in Bangladesh, South Africa, and India in order to improve infant and maternal mortality rates. Multinational corporations have also been active in the mHealth effort: Vodafone released a platform in 2013 that allowed Vodafone customers to dial a short number in order to speak directly to a doctor or nurse for telehealth advice for only one Ghanaian pesewa. While the system is only available in certain hours of the day, it is available daily at a very cheap rate, offering medical advice and information to the general public<a href="http://vibeghana.com/2013/09/25/vodafone-ceo-officially-unveils-mobile-healthcare/">[3]</a>.</p>
+
+<h3 id="internettrendanalytics">Internet Trend Analytics</h3>
+
+<p>As a supplement to the current case propagation system, webscraping based platforms now allow doctors and international organizations to constantly monitor social media and local news outlets for patterns and trends in epidemics. One recent platform that has been making waves in the developing world is <a href="http://www.healthmap.org/">HealthMap</a>, a free platform based out of the Boston Children’s Hospital, that algorithmically follows media outlets for coverage on outbreaks. The platform works by automatically scraping, every hour, hundreds of thousands of online sources based on keyword searches, local news outlets, social media, RSS feeds, and APIs, and sorting these sources based on geographic location and disease referenced in the source <a href="http://www.techrepublic.com/article/how-an-algorithm-detected-the-ebola-outbreak-a-week-early-and-what-it-could-do-next/">[4]</a>. HealthMap started over 6 years ago and actually had very little initial success in getting adoption by the CDC and WHO. In the recent epidemic, however, HealthMap received wide-spread media attention after it was able to recognize a hemorrhagic fever in Guinea more than a week before WHO officially reported on the Ebola outbreak on March 24th<a href="http://www.bostonglobe.com/lifestyle/health-wellness/2014/08/07/digital-health-map-tracks-new-cases-ebola-virus-real-time/DjPXtj8O7R81wij7dhDkIN/story.html">[5]</a>. Only after its success was proven did international organizations hop on board — the CDC and WHO are now both avid users of the platform. HealthMap operates in a world of incomplete information, sidestepping the bureaucracy and red tape of traditional case detection propagation by leveraging the large amount of data freely available on the web. HealthMap is expanding into more sources of data, more languages, and is also determining more specific ways of categorizing cases by sorting out the noise of vast amounts of data scraped from the web.</p>
+
+<h2 id="adecentralizedrealtimeglobalepidemicanddiseaseoutbreaktrackingplatform">A decentralized real-time global epidemic and disease outbreak tracking platform</h2>
+
+<p>I believe the pie-in-the-sky solution to epidemic case reporting is a global real-time epidemic and disease outbreak tracking platform that unifies a verified network of doctors and mobile clinics from around the world to facilitate early awareness of potential outbreaks. A decentralized case reporting system reduces hierarchical bureaucracy in epidemic aid allocation and increases public data available for large-scale global analytics.</p>
+
+<p>Over the past several months, I have been working on an open-source proof-of-concept SMS-based real time global epidemic and disease outbreak tracking platform using Meteor.js; it offers a platform that would display a real-time heatmap of outbreaks through Google Maps integration and allows for SMS case reporting through the Twilio API. While cell phone penetration is over 89% in developing countries according to the UN, 3G/4G data coverage is still limited in many third-world countries. Thus, the ability to report cases via text message as well as online is a crucial design decision necessary for prompt, real-time data. The case-tracking model offers information about strain and drug resistance, if known, as well as number of cases, the treatment given, and geographic region of each case. In an ideal implementation, the platform would offer a system through which suspected cases could be reported directly by mobile clinics and doctors to a centralized database so data could be analyzed for patterns and the appropriate authorities could be notified promptly. Having data in a centralized system with timestamps means that we can extract longitudinal trends in the data; this data about where diseases have been, when overlayed with historical or current human travel/migration patterns, can help inform our predictions of where an epidemic might spread next.</p>
+
+<p><img src="https://medium2.global.ssl.fastly.net/max/2000/1*b4pZ4xSbe0nlVROJEXVlBA.png" alt="The site includes a heatmap of cases reported in real-time as well as a listing of the cases with information including the geographic location, number of cases, resistance, treatment, and strain of the case." title=""><em>The site includes a heatmap of cases reported in real-time as well as a listing of the cases with information including the geographic location, number of cases, resistance, treatment, and strain of the case.</em></p>
+
+<p><img src="https://medium2.global.ssl.fastly.net/max/2000/1*aztB_HQguJEgxR1EHyK_NQ.png" alt="Using Twilio integration, the site supports reporting of cases through text message input of case information. One submitted, the results populate to the site directly.">
+<em>Using Twilio integration, the site supports reporting of cases through text message input of case information. One submitted, the results populate to the site directly.</em></p>
+
+<p>The concept for the system is inspired by a <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3675794/">paper</a> published by Amy Wesolowski, a PhD student at Carnegie Mellon, in *Science *magazine on the use of human migration data in epidemic tracking. In it, she and a team of researchers use cellphone metadata from Vodafone as a proxy for human travel patterns to map the spread of the 2008 malaria epidemic in Kenya. Using cellphone data from over 15 million cell phone users over the period of the epidemic, she was able to map travel patterns that increased the transmission of malaria as well as regions that could be targeted in further intervention efforts. The research offered a fascinating proof-of-concept for the use of mobile data in epidemic tracking. The key limitation was that Weolowski’s study used data from three years prior to track an outbreak that happened in 2008; I wanted to adapt the concept but transform it into a *real-time *platform that worked with data from a network of verified doctors and mobile clinics to *predict *the spread of current and future epidemics as opposed to analyze ones that have occurred in the past. <strong>Doing so would allow aid to be delivered more intelligently to affected areas, and for the first time, in a preemptive manner as opposed to after the fact.</strong></p>
+
+<p>Honestly, the roadblocks to the project have actually been more political than technical. The platform will only be as powerful and useful as the number of verified doctors and mobile clinics on it. Despite these challenges, the platform offers a great proof-of-concept that a better system for case reporting can exist; one that is decentralized and connects mobile clinics, doctors, and humanitarian aid workers globally rather than being technologically-backwards, handwritten, and hierarchical. The recent Ebola epidemic demonstrated a clear need for broad sweeping changes in our current global humanitarian system; technological advances in our epidemic case reporting systems could be a great starting point for fixing the issues inherent in this sector. However, in order for this ideal case reporting system to exist, we need international organizations to step up to the plate and be more technological bold in adopting better systems. Only then can we open up global data sets for preemptive analytics and effectively handle future global crises of a similar magnitude as the Ebola epidemic.</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/nina/" style="background-image: url(../content/images/2016/01/10423276_10203437882244617_2680818515112715062_n.jpg)"><span class="hidden">Nina Lu's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/nina/">Nina Lu</a></h4>
+
+                    <p>Read <a href="../author/nina/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Applications%20of%20Decentralized%20Case%20Reporting%20in%20the%20Ebola%20Epidemic&amp;url=http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/applications-of-decentralized-case-reporting-in-the-ebola-epidemic/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(../content/images/2016/01/1-s2-bRvQqqF0mPO0Mmb69Xw.jpeg)" href="../fitbits-biggest-product-flub/">
+        <section class="post">
+            <h2>Fitbit’s Biggest Product Flub</h2>
+            <p>How Fitbit’s decision to combine the activity tracker and band into one integrated unit forced product mundaneness On…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev " style="background-image: url(../content/images/2016/01/1-BtfR7-gI7jrAbR6FtgRtZg.jpeg)" href="../apples-beats-acquisition/">
+        <section class="post">
+            <h2>Apple’s Beats Acquisition</h2>
+            <p>How Apple is using cash to pay off risk. There’s been a lot of buzz recently about Apple’…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://localhost:2368">Nina's Blog</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=26dc3bd4c5"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=26dc3bd4c5"></script>
+
+</body>

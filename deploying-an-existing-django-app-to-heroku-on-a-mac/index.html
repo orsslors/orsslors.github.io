@@ -1,0 +1,319 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Deploying an Existing Django App to Heroku on a Mac</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=26dc3bd4c5">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Nina's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Deploying an Existing Django App to Heroku on a Mac">
+    <meta property="og:description" content="Because the tutorial almost, but didn’t quite, work. The Django tutorial Heroku provides ALMOST worked. I ironed out a couple crinkles when I went through the process myself so I thought I would share it with the world to...">
+    <meta property="og:url" content="http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/">
+    <meta property="article:published_time" content="2016-01-13T16:18:14.788Z">
+    <meta property="article:modified_time" content="2016-01-13T16:18:14.786Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deploying an Existing Django App to Heroku on a Mac">
+    <meta name="twitter:description" content="Because the tutorial almost, but didn’t quite, work. The Django tutorial Heroku provides ALMOST worked. I ironed out a couple crinkles when I went through the process myself so I thought I would share it with the world to...">
+    <meta name="twitter:url" content="http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Nina's Blog",
+    "author": {
+        "@type": "Person",
+        "name": "Nina Lu",
+        "image": "http://localhost:2368/content/images/2016/01/10423276_10203437882244617_2680818515112715062_n.jpg",
+        "url": "http://localhost:2368/author/nina",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Deploying an Existing Django App to Heroku on a Mac",
+    "url": "http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/",
+    "datePublished": "2016-01-13T16:18:14.788Z",
+    "dateModified": "2016-01-13T16:18:14.786Z",
+    "description": "Because the tutorial almost, but didn’t quite, work. The Django tutorial Heroku provides ALMOST worked. I ironed out a couple crinkles when I went through the process myself so I thought I would share it with the world to..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Nina's Blog" href="http://localhost:2368/rss/">
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://localhost:2368/">Home</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="http://localhost:2368/rss/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Deploying an Existing Django App to Heroku on a Mac</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-01-13">13 January 2016</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <h2 id="becausethetutorialalmostbutdidntquitework">Because the tutorial almost, but didn’t quite, work.</h2>
+
+<p>The <a href="https://devcenter.heroku.com/articles/getting-started-with-django">Django tutorial</a> Heroku provides ALMOST worked. I ironed out a couple crinkles when I went through the process myself so I thought I would share it with the world to save people some heartache. You should read this in conjunction with that tutorial to get your Django app up and running on Heroku.</p>
+
+<p><strong>First Things First</strong></p>
+
+<p>First, if you do not have Postgresql, you should get it because you will need it for Heroku. I was originally using an SQLite backend—this does not work on Heroku and you will need to download Postgresql. If you have Homebrew,</p>
+
+<pre><code>brew install postgresql
+</code></pre>
+
+<p>If not, install Homebrew and then install Postgresql. Then, in your Django App,</p>
+
+<pre><code>pip install virtualenv
+
+virtualenv venv
+
+source venv/bin/activate
+
+*export CFLAGS=-Qunused-arguments export CPPFLAGS=-Qunused-arguments*
+
+pip install django-toolbelt
+</code></pre>
+
+<p>Note the extra line. I ran into a terrible error during “pip install django-toolbelt” (mno-fused-madd MADNESS related to XCode Command Line Tools). The export CFlags line will save you from this torture.</p>
+
+<p>Create a Procfile. This should be in our project folder (outer folder) but not within your app folder. In your Procfile,</p>
+
+<pre><code>web: gunicorn INSERTNAMEOFDJANGOPROJECT.wsgi
+</code></pre>
+
+<p>You should now be able to, in terminal:</p>
+
+<pre><code>foreman start
+</code></pre>
+
+<p>My foreman start merely said “web: 1: started pid #” rather than the “Starting gunicorn” promised by the tutorial. The default port is 5000 with foreman so you should be able to navigate to localhost:5000 and see your site.</p>
+
+<p><strong>Back to Heroku Config Stuff</strong></p>
+
+<p>As the tutorial states, run:</p>
+
+<pre><code>pip freeze &gt; requirements.txt
+</code></pre>
+
+<p>This will generate a requirements.txt with all of your dependencies.</p>
+
+<p><strong>Setting up Postgresql database on Heroku</strong></p>
+
+<p>Create a Postgresql database at <a href="https://postgres.heroku.com/databases">https://postgres.heroku.com/databases</a>. When I created a database, it automatically generated a Heroku app with a generic name to go along with it. I was able to change the name of the Heroku app later to a more appropriate URL by visiting my apps dashboard. Back on the databases dashboard, click on the database name to view Host, Database Name, Username, Password, etc.</p>
+
+<p>In your settings.py, replace your existing DATABASES field with the fields specified for the Heroku database created. Please note that these are not your Heroku username and password but rather the username and password provided for that specific Heroku generated database:</p>
+
+<pre><code>DATABASES = {
+ ‘default’: {
+ ‘ENGINE’: ‘django.db.backends.postgresql_psycopg2',
+ ‘NAME’: ‘DATABASE_FROM_HEROKU’, 
+ ‘USER’: ‘USERNAME_FROM_HEROKU’,
+ ‘PASSWORD’: ‘PASSWORD_FROM_HEROKU’,
+ ‘HOST’: ‘HOST_FROM_HEROKU’
+ }
+}
+</code></pre>
+
+<p>This step is not included in the tutorial Heroku provided but <strong>needs to be done to use their Postgresql backend.</strong></p>
+
+<p>Next, follow tutorial instructions by adding the dj<em>database</em>url lines and static asset configuration lines to your settings.py file.</p>
+
+<pre><code># Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+ os.path.join(BASE_DIR, 'static'),
+)
+</code></pre>
+
+<p><em>Note on Static Files:</em></p>
+
+<p>Essentially Django pulls the used static files in project(outer)/app(inner)/static/ and collects and copies them to the project(outer)/staticfiles/ directory.</p>
+
+<p>If this is set up correctly, you should be able to run</p>
+
+<pre><code>python manage.py collectstatic —noinput
+</code></pre>
+
+<p>while in virtualenv and have it collect the static files to the project(outer)/staticfiles/ directory. When visiting the site locally (localhost:8000) with “python manage.py runserver”, you should be able to access your static files at “localhost:8000/static/…”. In your templates, you can access these static files as such</p>
+
+<pre><code> {% load staticfiles %}
+
+&lt;link href=”{% static “bootstrap/css/bootstrap.min.css” %}” rel=”stylesheet” type=”text/css” /&gt;
+</code></pre>
+
+<p><strong>Back to Heroku Stuff</strong></p>
+
+<p><strong>DO NOT</strong> follow the tutorial in adding “Cling” to wsgi.py. This did not work for me and only caused gunicorn to break. <strong>Simple leave wsgi.py alone</strong> and ensure that “foreman start” still runs as expected.</p>
+
+<p>I did not change my wsgi.py at all—it is as follows:</p>
+
+<pre><code>import os
+os.environ.setdefault(“DJANGO_SETTINGS_MODULE”, “APP.settings”)
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+</code></pre>
+
+<p><strong>Last Mile</strong></p>
+
+<p>Create a .gitignore if you do not already have one:</p>
+
+<pre><code>venv
+*.pyc
+staticfiles
+</code></pre>
+
+<p>Hopefully you already have a git. If not,</p>
+
+<pre><code>git init
+
+git add .
+
+git commit -m "message"
+
+heroku git:remote -a NAMEOFHEROKUAPP
+</code></pre>
+
+<p>Lastly,</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>and</p>
+
+<pre><code>heroku ps:scale web=1
+
+heroku run python manage.py syncdb
+</code></pre>
+
+<p>Set up your database as you see fit and run:</p>
+
+<pre><code>heroku open
+</code></pre>
+
+<p>Hopefully your Heroku Django app is up and running. If not, feel free to comment or reach out.</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/nina/" style="background-image: url(../content/images/2016/01/10423276_10203437882244617_2680818515112715062_n.jpg)"><span class="hidden">Nina Lu's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/nina/">Nina Lu</a></h4>
+
+                    <p>Read <a href="../author/nina/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Deploying%20an%20Existing%20Django%20App%20to%20Heroku%20on%20a%20Mac&amp;url=http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/deploying-an-existing-django-app-to-heroku-on-a-mac/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(../content/images/2016/01/1-BtfR7-gI7jrAbR6FtgRtZg.jpeg)" href="../apples-beats-acquisition/">
+        <section class="post">
+            <h2>Apple’s Beats Acquisition</h2>
+            <p>How Apple is using cash to pay off risk. There’s been a lot of buzz recently about Apple’…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev " style="background-image: url(../content/images/2016/01/1-rUGGyJHeHBeEAEhY-I2_ZQ.jpeg)" href="../a-radical-plan-to-improve-real-human-interaction/">
+        <section class="post">
+            <h2>A Radical Plan to Improve Real Human Interaction</h2>
+            <p>With real-life examples from college life and airports We live in an age that is both more connected and…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://localhost:2368">Nina's Blog</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=26dc3bd4c5"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=26dc3bd4c5"></script>
+
+</body>
